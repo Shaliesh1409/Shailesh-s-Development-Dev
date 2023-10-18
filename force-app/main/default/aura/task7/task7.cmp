@@ -1,0 +1,32 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="AccountOpportunityContactController">
+    <aura:attribute name="accountData" type="List" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer">
+        <thead>
+            <tr>
+                <th scope="col">Account Name</th>
+                <th scope="col">Opportunities</th>
+                <th scope="col">Contacts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.accountData}" var="accWrapper">
+                <tr>
+                    <td>{!accWrapper.account.Name}</td>
+                    <td>
+                        <aura:iteration items="{!accWrapper.opportunities}" var="opp">
+                            {!opp.Name}<br />
+                        </aura:iteration>
+                    </td>
+                    <td>
+                        <aura:iteration items="{!accWrapper.contacts}" var="contact">
+                            {!contact.LastName}<br />
+                        </aura:iteration>
+                    </td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+</aura:component>

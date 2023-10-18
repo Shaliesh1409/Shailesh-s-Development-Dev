@@ -1,0 +1,14 @@
+<apex:page>
+    <apex:includeLightning />
+    <div id="lwcContainer"></div>
+    <script>
+        $Lightning.use("c:yourApp", function() {
+            $Lightning.createComponent(
+                "c:auraforlwc",
+                {},
+                "lwcContainer",
+                function(cmp) {}
+            );
+        });
+    </script>
+</apex:page>

@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Dropbox Integration">
+        <lightning-input label="Record Id" value={recordId} onchange={handleRecordIdChange}></lightning-input>
+        <lightning-file-upload label="Upload Files" name="fileUploader" accept={acceptedFormats}
+            onuploadfinished={handleUploadFinished}></lightning-file-upload>
+
+        <template if:true={files}>
+            <div> 
+                <!-- {files}
+               <template for:each={files} for:item="file">
+                    {file}
+                    <div key={file.Id}> -->
+                        <p>File : {files}</p></br>
+                        <lightning-button label="Delete" onclick={handleDeleteClick} ></lightning-button> 
+
+
+                    <!-- </div>
+                </template>   -->
+
+            </div>
+         </template>
+     </lightning-card>
+</template>

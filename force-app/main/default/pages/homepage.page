@@ -1,0 +1,68 @@
+<apex:page showHeader="false">
+    <html>
+        <head>
+            <title>Custom Home Page</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f2f2f2;
+                }
+                .header {
+                    background-color: #0070D2;
+                    color: white;
+                    padding: 20px;
+                    text-align: center;
+                }
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+                .section {
+                    background-color: white;
+                    border-radius: 5px;
+                    padding: 20px;
+                    margin-bottom: 20px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                }
+                .section h2 {
+                    color: #0070D2;
+                }
+                .footer {
+                    background-color: #f2f2f2;
+                    padding: 10px;
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>Welcome to Custom Home Page</h1>
+                <p>Your personalized experience</p>
+            </div>
+            <div class="container">
+                <div class="section">
+                    <h2>Latest Updates</h2>
+                    <p>Stay up-to-date with the latest news and developments.</p>
+                    <ul>
+                        <li>New feature: Enhanced reporting dashboard</li>
+                        <li>Upcoming webinar: Mastering Salesforce automation</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h2>Your Tasks</h2>
+                    <p>Manage your tasks and activities efficiently.</p>
+                    <ul>
+                        <li>Follow up with leads</li>
+                        <li>Review quarterly sales goals</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer">
+                <p>&copy; 2023 Custom Home Page. All rights reserved.</p>
+            </div>
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,83 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="AccountContactsController" >
+    <aura:attribute name="accountName" type="String" />
+    <aura:attribute name="contacts" type="Contact[]" />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="pageSize" type="Integer" default="5" />
+    <aura:attribute name="totalPages" type="Integer" /> 
+    <aura:attribute name="startRecord" type="Integer" default="1" />
+    <aura:attribute name="endRecord" type="Integer" default="5" /> 
+    <aura:attribute name="totalContacts" type="Integer" /> 
+
+    
+    <!-- <aura:attribute name="data" type="List"  /> -->
+
+    
+    <div class="slds-page-header">
+        <h1>{!v.accountName} Contacts</h1>
+    </div>
+
+    <div class="slds-form-element">
+        <label class="slds-form-element__label" for="pageSize">Select Page Size:</label>
+        <div class="slds-form-element__control">
+            <lightning:select name="pageSize" label="Page Size" aura:id="pageSizeSelect" onchange="{!c.changePageSize}">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <!-- Add more options as needed -->
+            </lightning:select>
+        </div>
+    </div>
+
+
+    <div class="slds-form">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="accountName">Search Account:</label>
+            <div class="slds-form-element__control">
+                <lightning:input type="text" id="accountName" value="{!v.accountName}" />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <lightning:button label="Search" onclick="{!c.searchAccount}" />
+        </div>
+    </div>
+    
+    <!-- Display Contacts in Table -->
+    <table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer">
+        <thead>
+            <tr class="slds-text-heading--label">
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.contacts}" var="contact">
+                <tr>
+                    <td>{!contact.Name}</td>
+                    <td>{!contact.Email}</td>
+                    <td>{!contact.Phone}</td>
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+
+
+
+
+    <div class="slds-p-top_large">
+        <ul class="slds-p-horizontal_large">
+            <li class="slds-p-horizontal_small">
+                <lightning:button label="Previous" disabled="{!v.currentPage == 1}" onclick="{!c.previousPage}" />
+            </li>
+            <li class="slds-p-horizontal_small">
+                <lightning:button label="Next" disabled="{!v.currentPage == v.totalPages}" onclick="{!c.nextPage}" />
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="slds-p-top_large">
+        <p class="slds-text-title">{!v.startRecord}-{!v.endRecord} of {!v.totalContacts} Contacts</p>
+    </div>
+</aura:component>

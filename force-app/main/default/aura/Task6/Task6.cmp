@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global" >
+    <aura:attribute name="imageUrl" type="String" />
+    <aura:attribute name="backgroundColor" type="String" />
+    <aura:attribute name="description" type="String" />
+    <aura:attribute name="fontSize" type="String" />
+    <aura:attribute name="fontColor" type="String" />
+    
+    <div class="slds-p-around_medium">
+        <lightning:input label="Image URL" value="{!v.imageUrl}" />
+        <lightning:input label="Background Color" value="{!v.backgroundColor}" />
+        <lightning:input label="Description" value="{!v.description}" />
+        <lightning:input label="Font Size" value="{!v.fontSize}" />
+        <lightning:input label="Font Color" value="{!v.fontColor}" />
+        <lightning:button label="Render Component" onclick="{!c.renderComponent}" />
+    </div>
+
+    <div style="{!'background-color:' + v.backgroundColor}">
+        <aura:if isTrue="{!not(empty(v.imageUrl))}">
+            <img src="{!v.imageUrl}" alt="Image" max-width="100%" />
+        </aura:if>
+        <aura:if isTrue="{!not(empty(v.description))}">
+            <p style="{!'font-size:' + v.fontSize + '; color:' + v.fontColor}">{!v.description}</p>
+        </aura:if>
+    </div>
+</aura:component>

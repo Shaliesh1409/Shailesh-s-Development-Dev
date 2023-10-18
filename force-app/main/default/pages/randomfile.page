@@ -1,0 +1,9 @@
+<apex:page standardController="Opportunity" extensions="OpportunityAttachmentService" >
+    <apex:form >
+        <apex:pageMessages />
+        <apex:outputText value="Opportunity Id: {!Opportunity.Id}" />
+        <apex:commandButton value="Add Random Image" action="{!passid}">
+            <apex:param name="opportunityIds" value="{!Opportunity.Id}" assignTo="{!opportunityIds}" />
+        </apex:commandButton>
+    </apex:form>
+</apex:page>

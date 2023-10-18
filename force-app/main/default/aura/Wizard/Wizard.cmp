@@ -1,0 +1,210 @@
+<aura:component access="GLOBAL" controller="SalesforceLightningWizardController">
+    <aura:attribute name="accountData" type="Account" default="{ 'sobjectType': 'Account','Name': ''}"/>
+    <aura:attribute name="contactData" type="Contact" default="{ 'sobjectType': 'Contact','LastName': ''}"/>
+    <aura:attribute name="showAccount" type="boolean" default="true"/> '
+    <aura:attribute name="showContact" type="boolean" default="false"/> 
+    <!-- <aura:attribute name="showData" type="boolean" default="false"/> -->
+    <aura:attribute name="showEvent" type="boolean" default="false"/>
+    <aura:attribute name="eventData" type="Event" default="{ 'sobjectType': 'Event', 'Location': '', 'StartDateTime': '', 'EndDateTime': '' }"/>
+    <aura:attribute name="setMessage" type="String"/> 
+    <aura:attribute name="showError" type="boolean" default="false"/>
+    <aura:attribute name="message" type="String" default="NoError"/> 
+
+    <div class="slds-grid slds-grid--vertical forceListViewManager adapetr-config-main">
+        <!--********* HEADER ********* -->
+        <div class="slds-page-header adapetr-header">
+            <div class="slds-media">
+                <div class="slds-media__body">
+                    <aura:renderIf isTrue="{!v.showAccount}">
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">Salesforce Wizard 1 of 3</h1>
+                        <p class="slds-text-title--caps slds-line-height--reset">Account Creation</p>
+                    </aura:renderIf>
+                    
+                    <aura:renderIf isTrue="{!v.showContact}">
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">Salesforce Wizard 2 of 3</h1>
+                        <p class="slds-text-title--caps slds-line-height--reset">Contact Creation</p>
+                    </aura:renderIf>
+                    
+                    <aura:renderIf isTrue="{!v.showEvent}">
+                        <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">Salesforce Wizard 3 of 3</h1>
+                        <p class="slds-text-title--caps slds-line-height--reset">Event Creation</p>
+                    </aura:renderIf>
+                    
+                    <div id="showErrorrTractConfig" class="cmn_error_msg " style="display:none; text-align:center;font-weight:700">
+                        <ui:outputText value="{!v.message}"/>
+                    </div>
+                    
+                    <div id="showMessageTractConfig" class="cmn_message " style="display:none;text-align:center;font-weight:700">
+                        <ui:outputText value="{!v.message}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="adapetr-config-sec">
+            <h3 class="slds-text-heading--small">Please provide the following information. All the fields marked with <span class="cmn_mandatory_indicator">*</span> are required.</h3>
+            <div class="slds-box slds-align--absolute-center config-table-details">
+                <table class="slds-table ">
+                    <aura:renderIf isTrue="{!v.showError}">
+                        <ui:message title="Warning" severity="warning" closable="true">
+                            Please Fill required field first
+                        </ui:message>
+                    </aura:renderIf>
+                    
+                    <aura:renderIf isTrue="{!v.showAccount}">
+                        <tr>
+                            <td>
+                                <div class="topSpacing">
+                                    <label class="slds-form-element__label">Name<span class="cmn_mandatory_indicator">*</span></label>
+                                </div>
+                                <div class="width">  
+                                    <ui:inputText class="slds-input" aura:id="Name" value="{!v.accountData.Name}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="topSpacing">
+                                    <label class="slds-form-element__label">Account Number</label>
+                                </div>
+                                <div class="width">  
+                                    <ui:inputText class="slds-input" value="{!v.accountData.AccountNumber}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="topSpacing"> 
+                                    <label class="slds-form-element__label">Description</label>
+                                </div>
+                                <div class="width">
+                                    <ui:inputText class="slds-input" value="{!v.accountData.Description}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:renderIf>
+                    
+                    <aura:renderIf isTrue="{!v.showContact}">
+                        <tr>
+                            <td>
+                                <div class="topSpacing">
+                                    <label class="slds-form-element__label">First Name</label>
+                                </div>
+                                <div class="width">  
+                                    <ui:inputText class="slds-input" value="{!v.contactData.FirstName}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="topSpacing">
+                                    <label class="slds-form-element__label">Last Name<span class="cmn_mandatory_indicator">*</span></label>
+                                </div>
+                                <div class="width">
+                                    <ui:inputText class="slds-input" aura:id="LastName" value="{!v.contactData.LastName}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="topSpacing"> 
+                                    <label class="slds-form-element__label">Phone</label>
+                                </div>
+                                <div class="width">
+                                    <ui:inputText class="slds-input" value="{!v.contactData.Phone}"></ui:inputText>
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:renderIf>
+                    <aura:renderIf isTrue="{!v.showEvent}">
+
+                    <div class="slds-form--stacked">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Subject : Wizard Task</label>
+
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Location</label>
+                            <div class="slds-form-element__control">
+                                <ui:inputText class="slds-input" aura:id="location" value="{!v.eventData.Location}" required="true"/>
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">Start Date and Time</label>
+                            <div class="slds-form-element__control">
+                                <!-- <ui:inputDateTime class="slds-input" aura:id="eventStartDateTime" value="{!v.eventData.StartDateTime}" required="true"/> -->
+                                <lightning:input type="datetime" name="input1" label="Enter a date/time value" aura:id="eventStartDateTime" value="{!v.eventData.StartDateTime}" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label">End Date and Time</label>
+                            <div class="slds-form-element__control">
+                                <!-- <ui:inputDateTime class="slds-input" aura:id="eventEndDateTime" value="{!v.eventData.EndDateTime}" required="true"/> -->
+                                <lightning:input type="datetime" name="input1" label="Enter a date/time value" aura:id="eventEndDateTime" value="{!v.eventData.EndDateTime}" />
+                            </div>
+                        </div>
+                        </div>
+                        
+                
+                
+                </aura:renderIf>
+                
+                </table>
+            </div>
+            
+            <div class="slds-grid slds-grid--align-center">
+                <aura:renderIf isTrue="{!v.showAccount}">
+                    <button class="slds-button slds-button--brand" onclick="{!c.nextTab}">Next</button>
+                </aura:renderIf>
+                
+                <aura:renderIf isTrue="{!v.showContact}">
+                    <button class="slds-button slds-button--brand" onclick="{!c.prevTab}" >Back</button>
+                    <button class="slds-button slds-button--brand" onclick="{!c.nextTab}" >Next</button>
+                </aura:renderIf>
+                
+                <aura:renderIf isTrue="{!v.showEvent}">
+                    <button class="slds-button slds-button--brand" onclick="{!c.prevTab}" >Back</button>
+                    <button class="slds-button slds-button--brand" onclick="{!c.saveRecord}" >Save</button>
+                </aura:renderIf>
+            </div>
+        </div>
+
+        <aura:renderIf isTrue="{!v.showAccount}">
+            <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="YOU ARE ON THE FIRST STEP" role="progressbar">
+                <span class="slds-progress-bar__value" style="width:33%">
+                <span class="slds-assistive-text">Progress: 33%</span>
+                </span>
+                </div>
+        </aura:renderIf>
+
+        <aura:renderIf isTrue="{!v.showContact}">
+
+        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66" aria-label="YOU ARE ON THE SECOND STEP"  role="progressbar">
+            <span class="slds-progress-bar__value" style="width:66%">
+            <span class="slds-assistive-text">Progress: 66%</span>
+            </span>
+            </div>
+
+        </aura:renderIf>
+
+
+        <aura:renderIf isTrue="{!v.showEvent}">
+        <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-label="YOU ARE ON THE THIRD STEP" role="progressbar">
+            <span class="slds-progress-bar__value" style="width:100%">
+            <span class="slds-assistive-text">Progress: 100%</span>
+            </span>
+            </div>
+
+        </aura:renderIf>
+
+        
+
+
+
+
+
+
+
+
+    </div>
+</aura:component>

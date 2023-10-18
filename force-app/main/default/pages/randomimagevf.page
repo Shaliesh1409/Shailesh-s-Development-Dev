@@ -1,0 +1,7 @@
+<apex:page controller="OpportunityAttachmentService">
+   
+    <!-- Button to trigger the action -->
+    <apex:form >
+        <apex:commandButton value="Add Random File (Image)" onclick="addRandomImage(); return false;"/>
+    </apex:form>
+</apex:page>

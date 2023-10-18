@@ -1,0 +1,33 @@
+<apex:page controller="OpportunityListController">
+    <apex:form >
+        
+        <apex:pageBlock title="Select an Account">
+            <apex:pageBlockSection >
+                <apex:selectList value="{!selectedAccountId}" size="1">
+                    <apex:selectOptions value="{!accountOptions}" />
+                    <apex:actionSupport event="onchange" action="{!loadOpportunities}" reRender="opportunityList" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:outputPanel id="opportunityList">
+            <apex:pageBlock title="Opportunities">
+                <apex:pageBlockTable value="{!opportunities}" var="opp">
+                    <apex:column headerValue="Opportunity Name" value="{!opp.Name}" />
+                    <apex:column headerValue="Stage" value="{!opp.StageName}" />
+                    <apex:column headerValue="Close Date" value="{!opp.CloseDate}" />
+                </apex:pageBlockTable>
+                <apex:commandLink action="{!Previous}" value="« Previous" rendered="{!HasPrevious}" />
+                <apex:outputText style="color: #ccc;" value="« Previous" rendered="{!NOT(HasPrevious)}" />
+                &nbsp;&nbsp;
+                <apex:commandLink action="{!Next}" value="Next »" rendered="{!HasNext}" />
+                <apex:outputText style="color: #ccc;" value="Next »" rendered="{!NOT(HasNext)}" />
+                <apex:selectList value="{!PageSize}" size="1">
+                    <apex:selectOption itemValue="5" itemLabel="5" />
+                    <apex:selectOption itemValue="10" itemLabel="10" />
+                    <apex:actionSupport event="onchange" reRender="opportunityList" />
+                </apex:selectList>
+            </apex:pageBlock>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

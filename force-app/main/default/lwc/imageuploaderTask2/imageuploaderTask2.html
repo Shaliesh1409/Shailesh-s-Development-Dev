@@ -1,0 +1,57 @@
+<template>
+    <div class="slds-form-element">
+        <lightning-input
+            type="file"
+            label="Upload PDF File"
+            onchange={handleFileUpload}
+            accept="image/*">
+        </lightning-input>
+    </div>
+
+    <c-child file-url={fileUrl}></c-child> 
+</template>
+        <!-- name={fileUrl} -->
+        <!-- <div class="slds-form-element">
+            <img src={name} alt="Uploaded Image" />
+        </div> -->
+   
+  
+<!-- 
+
+<template>
+    <div>
+        <lightning-input type="file" label="Select an Image" accept=".png, .jpg, .jpeg" onchange={handleFileSelect}></lightning-input>
+    </div>
+    <c-file-preview-child file-content={fileContent} if:true={fileContent}></c-file-preview-child>
+</template>
+
+<template>
+    <div>
+        <h2>Image Preview:</h2>
+        <img src={fileContent} alt="Uploaded File" if:true={fileContent} />
+    </div>
+</template> -->
+<!-- 
+import { LightningElement, api } from 'lwc';
+
+export default class FilePreviewChild extends LightningElement {
+    @api fileContent;
+}
+
+
+import { LightningElement, track } from 'lwc';
+
+export default class FileUploaderParent extends LightningElement {
+    @track fileContent;
+
+    handleFileSelect(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                this.fileContent = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+} -->

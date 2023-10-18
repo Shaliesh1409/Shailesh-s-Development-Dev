@@ -1,0 +1,17 @@
+<!-- <aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg']" />
+    <lightning:fileUpload label="Attach receipt"
+           name="fileUploader"
+           multiple="false"
+           accept="{!v.filetype}"
+           recordId="{!v.CaseObj.Id}"
+           onuploadfinished="{!c.handleUploadFinished}"
+           />
+
+           
+</aura:component>	 -->
+
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:registerEvent name="compEvent" type="c:compEvent"/>
+    <input type="file" aura:id="fileInput" onchange="{!c.handleFileChange}" accept="image/*" />   
+</aura:component>

@@ -1,0 +1,26 @@
+<!-- <template>
+	<label for="FieldSelect" class="slds-form-element__label slds-no-flex">
+        <abbr title="required" class="slds-required">*</abbr>//in case you want to mark required
+        Select Filter Condition
+    </label>
+	<select class="slds-select" onchange={handleAccountSelection}>
+    <option>Select Account</option>
+    <template for:each ={acc} for:item="item">
+    <option key={item.Id} value={item.Id}>{item.Name}</option>
+    </template>
+    </select>
+	 <select class="slds-select" name = "optionSelect" onchange={changeHandler} >
+        <option value="OPTION A">OPTION A</option>
+        <option value="OPTION B">OPTION B</option>
+    </select> 
+ </template> --> 
+
+<template>
+    <lightning-combobox
+        name="accountDropdown"
+        label="Select an Account"
+        value={selectedAccount}
+        options={accountOptions}
+        onchange={handleAccountSelection}
+    ></lightning-combobox>
+</template>

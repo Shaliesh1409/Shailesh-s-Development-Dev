@@ -1,0 +1,64 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="Task3">
+    <aura:attribute name="accountName1" type="String" />
+    <aura:attribute name="contacts1" type="List" />
+    <aura:attribute name="accountName2" type="String" />
+    <aura:attribute name="contacts2" type="List" />
+    <aura:attribute name="contactCount1" type="Integer" />
+    <aura:attribute name="contactCount2" type="Integer" />
+
+    <div class="slds-grid">
+        <div class="slds-col">
+            <div class="slds-box">
+        <Label class="slds-form-element__label">SEARCH ACCOUNT :</Label>
+        <lightning:input type="text" id="accountName1" value="{!v.accountName1}" />
+        <lightning:button label="Search" onclick="{!c.search1}" />
+        <div class="slds-p-top_small">
+            <p>Number of Contacts: {!v.contactCount1}</p>
+        </div>
+
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.contacts1}" var="contact" >
+                    <tr ondragover="{!c.allowDrop}" ondrop="{!c.onDrop}">
+                        <td draggable="true" ondragstart="{!c.onDragStart}" data-contact-id="{!contact.Id}" data-source-section="1">{!contact.Name}</td>
+                    </tr>
+                </aura:iteration>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+    <div class="slds-col">
+        <div class="slds-box">
+        <Label class="slds-form-element__label">SEARCH ACCOUNT :</Label>
+        <lightning:input type="text" id="accountName2" value="{!v.accountName2}" />
+        <lightning:button label="Search" onclick="{!c.search2}" />
+        <div class="slds-p-top_small">
+            <p>Number of Contacts: {!v.contactCount2}</p>
+        </div>
+
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.contacts2}" var="contact">
+                    <tr ondragover="{!c.allowDrop}" ondrop="{!c.onDrop}">
+                        <td draggable="true" ondragstart="{!c.onDragStart}" data-contact-id="{!contact.Id}" data-source-section="2">{!contact.Name}</td>
+                    </tr>
+                </aura:iteration>
+
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>
+</aura:component>

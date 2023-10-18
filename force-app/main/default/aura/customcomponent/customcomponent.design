@@ -1,0 +1,7 @@
+<design:component label="My Custom Component">
+    <design:attribute name="imageUrl" label="Image URL" description="URL of the image" />
+    <design:attribute name="backgroundColor" label="Background Color" description="Background color" />
+    <design:attribute name="description" label="Description" description="Description text" />
+    <design:attribute name="fontSize" label="Font Size" description="Font size (e.g., 16px)" />
+    <design:attribute name="fontColor" label="Font Color" description="Font color (e.g., #000000)" />
+</design:component>

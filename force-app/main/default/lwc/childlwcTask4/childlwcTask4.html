@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Contacts and Opportunities">
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer">
+            <thead>
+                <tr>
+                    <th scope="col">Opportunities</th>
+                    <th scope="col">Contacts</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- Display Opportunity Names -->
+                    <td>
+                        <template for:each={opp} for:item="oppItem">
+                            <td key={oppItem.Id}>{oppItem.Name}</td>
+                        </template>
+                    </td>
+                    <!-- Display Contact Last Names -->
+                    <td>
+                        <template for:each={con} for:item="conItem">
+                            <td key={conItem.Id}>{conItem.LastName}</td>
+                        </template>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>
+
+
+
+
+<!-- <template>
+    <lightning-card title="Contacts and Opportunities">
+         <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer">
+        <thead>
+            <tr>
+                <th scope="col">Opportunities</th>
+                <th scope="col">Contacts</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <template for:each ={con} for:item="item">
+                <td key={item.Id}  value={item.LastName}>{item.LastName}</td></template>
+                 <template for:each ={opp} for:item="item">
+                <td key={item.Id} value={item.Name}>{item.Name}</td></template>
+
+
+            </tr> -->
+
+
+            <!-- <aura:iteration items="{!v.accountData}" var="accWrapper">
+                <tr>
+                    <td>{!accWrapper.account.Name}</td>
+                    <td>
+                        <aura:iteration items="{!accWrapper.opportunities}" var="opp">
+                            {!opp.Name}<br />
+                        </aura:iteration>
+                    </td>
+                    <td>
+                        <aura:iteration items="{!accWrapper.contacts}" var="contact">
+                            {!contact.LastName}<br />
+                        </aura:iteration>
+                    </td>
+                </tr>
+            </aura:iteration> -->
+        <!-- </tbody>
+    </table>
+
+    </lightning-card>
+</template> -->

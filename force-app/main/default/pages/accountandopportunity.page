@@ -1,0 +1,34 @@
+<apex:page controller="OpportunityRelatedToAccount">
+    <apex:form >
+        <apex:pageBlock >
+            <div style="display:flex; justify-content: space-between">
+                <div >
+                    <apex:outputLabel value="Select an Account: "/>
+                    <apex:selectList id="accountPicklist" value="{!selectedAccountId}" size="1">
+                        <apex:selectOptions value="{!accountOptions}"/>
+                        <apex:actionSupport event="onchange" action="{!GetTheOpportunities}" rerender="accountId"/>
+                    </apex:selectList>
+                </div>
+                <div>
+                <apex:outputLabel >Selected Account ID:</apex:outputLabel>
+                <apex:outputText id="accountId" value="{!selectedAccountId}"/>
+                </div>
+            </div>
+            <div style="display:flex; justify-content:space-around">
+                <apex:commandButton action="{!refreshPage}" Value="submit"/>
+            </div>
+        </apex:pageBlock>
+
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!records}" var="record">
+                <apex:column value="{!record.Name}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        <apex:panelGrid columns="2">
+            <apex:commandButton action="{!previousPage}" value="Previous" rendered="{!pageNumber > 1}" />
+            <apex:commandButton action="{!nextPage}" value="Next" rendered="{!pageNumber * pageSize < totalRecords}" />
+        </apex:panelGrid>
+    </apex:form>
+
+
+</apex:page>

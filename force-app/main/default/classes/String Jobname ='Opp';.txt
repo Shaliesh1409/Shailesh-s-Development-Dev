@@ -1,0 +1,74 @@
+String Jobname ='Opp';
+String CRON_EXP = '0 33 12 * * ? 2023';
+Insertrecords b = new Insertrecords();
+System.schedule(jobName,CRON_EXP, b);
+
+OpportunityAttachmentService.attachRandomImageToOpportunity('0065j00001PLy0LAAT');
+List<Contact> conlist = new List<Contact>();
+for(Contact con : [SELECT Id, Amount__c FROM Contact WHERE AccountId =: '0015j00001Ax8cZAAR']){
+    con.Amount__c = con.Amount__c - 5;
+    conlist.add(con);
+}
+update conlist;
+
+
+Task3.getContactcount('hetavi');
+List<Account> objectNames = PicklistController.getObjectRecords(Account);
+System.debug(objectNames);
+
+PicklistController.getObjectRecords(Account__c);
+System.debug(shailesh);
+List<SObject> records = PicklistController.getObjectRecords('Account','Contact');
+System.debug(records);
+
+
+HttpRequest req = new HttpRequest();
+String toAddress = 'mishrashailesh1409@gmail.com';
+String subject = 'testing sending email from salesforce using gmail api';
+String mailbody = 'hii bro';
+String mbody = ('{"raw":"' + EncodingUtil.base64Encode(Blob.valueOf('To: ' + toAddress + '\r\nContent-Type: text/plain; charset=UTF-8\r\nSubject: ' +subject + '\r\n\r\n' + mailBody)) + '"');
+req.setHeader('Content-Length', mbody.length()+'');
+req.setHeader('Content-Type', 'application/json');
+req.setEndpoint('callout:gmail_api/v1/users/me/messages/send'); // Replace {userId} with the actual user ID
+req.setMethod('POST');
+req.setBody(mbody);
+System.debug(mbody);
+Http h = new Http();
+HttpResponse res = h.send(req);
+System.debug(res);
+
+string sendTo='mishrashaileshr17@gmail.com';
+string subjectMail = 'email integration';
+string bodyGmail='hey bro ';
+string before = 'From: Ravi Modi <ravimodi1120@gmail.com>\n'+ 
+            'To: '+sendTo+'\n'+ 
+            'Subject: '+subjectMail+'\n' + 
+            'Content-Type: text/html \n\n'+bodyGmail; 
+        System.debug(before); 
+        Blob beforeblob = Blob.valueOf(before); 
+		System.debug(beforeblob); 
+        string paramvalue = EncodingUtil.base64Encode(beforeblob); 
+        paramvalue = paramvalue.replace('+', '-'); 
+        paramvalue = paramvalue.replace('/', '_'); 
+        System.debug(paramvalue); 
+        Http httpMail = new Http(); 
+        HttpRequest httpReqMail = new HttpRequest(); 
+        HttpResponse httpResMail = new HttpResponse(); 
+        httpReqMail.setEndpoint('callout:gmail_api/gmail/v1/users/me/messages/send');
+        
+        httpReqMail.setMethod('POST'); 
+        httpReqMail.setHeader('Content-Type', 'application/json');
+  		// httpReqMail.setHeader('Content-Type', 'message/rfc822');
+        httpReqMail.setHeader('Content-Length', '-1'); 
+        System.debug('paramvalue->'+paramvalue);
+        String refreshToknBody = '{"userId":"me","raw":"'+paramvalue+'"}';
+        httpReqMail.setBody(refreshToknBody);
+		httpResMail = httpMail.send(httpReqMail);
+		System.debug(httpResMail);
+		System.debug(httpResMail.getBody());
+
+
+
+
+
+

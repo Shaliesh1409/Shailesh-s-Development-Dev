@@ -1,0 +1,18 @@
+<apex:page standardController="Contact" extensions="SendEmailToContactController">
+    <apex:form>
+        <apex:pageMessages />
+        <apex:pageBlock title="Send Email to Contact">
+            <apex:pageBlockSection title="Email Details">
+                <apex:outputField value="{!contact.Email}" label="To" />
+                <apex:inputText label="Subject" value="{!emailSubject}" />
+                <apex:inputTextarea label="Email Body" value="{!emailBody}" rows="5" />
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Attachments">
+                <apex:inputFile value="{!attachment}" filename="{!attachmentName}" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Send Email" action="{!sendEmail}" />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

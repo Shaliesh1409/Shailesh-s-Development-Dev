@@ -1,0 +1,34 @@
+<template>
+    <!-- Button to open the email popup -->
+    <lightning-button label="Compose Email" onclick={openPopup}></lightning-button>
+
+    <!-- Email Popup - Displayed conditionally -->
+    <template if:true={isPopupOpen}>
+        <div class="popup-backdrop"></div>
+        <div class="email-popup">
+            <h2>Compose Email</h2>
+            <lightning-input label="Recipient Email" value={recipient} onchange={handleRecipientChange}></lightning-input>
+            <lightning-input label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
+            <lightning-textarea label="Email Body" value={body} onchange={handleBodyChange}></lightning-textarea>
+            <lightning-input type="file" label="Attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onchange={handleAttachmentChange}></lightning-input>
+            <lightning-button label="Send Email" onclick={sendEmail}></lightning-button>
+            <lightning-button label="Close" variant="brand" onclick={closePopup}></lightning-button>
+        </div>
+    </template>
+</template>
+
+<!-- <template>
+    <lightning-button label="Compose Email" onclick={openPopup}></lightning-button>
+    <template if:true={isPopupOpen}>
+        <div class="popup-backdrop"></div>
+        <div class="email-popup">
+            <h2>Compose Email</h2>
+            <lightning-input label="Recipient Email" value={recipient} onchange={handleRecipientChange}></lightning-input>
+            <lightning-input label="Subject" value={subject} onchange={handleSubjectChange}></lightning-input>
+            <lightning-textarea label="Email Body" value={body} onchange={handleBodyChange}></lightning-textarea>
+            <lightning-input type="file" label="Attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onchange={handleAttachmentChange}></lightning-input>
+            <lightning-button label="Send Email" onclick={sendEmail}></lightning-button>
+            <lightning-button label="Close" variant="brand" onclick={closePopup}></lightning-button>
+        </div>
+    </template>
+</template> -->

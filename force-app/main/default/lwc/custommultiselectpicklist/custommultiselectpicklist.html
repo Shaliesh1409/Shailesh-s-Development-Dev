@@ -1,0 +1,10 @@
+<template>
+    <div class="custom-multi-select-picklist">
+        <label>{label}</label>
+        <select multiple onchange={handleSelection}>
+            <template for:each={options} for:item="option">
+                <option key={option.value} value={option.value}>{option.label}</option>
+            </template>
+        </select>
+    </div>
+</template>

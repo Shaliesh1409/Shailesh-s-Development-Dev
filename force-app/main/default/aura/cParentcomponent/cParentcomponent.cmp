@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+    <aura:attribute name="imageData" type="String" />
+    <aura:handler name="compEvent" event="c:compEvent" action="{!c.handleImageSelected}" />
+
+    <c:chuildcomponent/>
+    <img src="{!v.imageData}" alt="Uploaded Image" />
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <aura:attribute name="imageUrl" type="String" />
+    <aura:attribute name="backgroundColor" type="String" />
+    <aura:attribute name="description" type="String" />
+    <aura:attribute name="fontSize" type="Integer" />
+    <aura:attribute name="fontColor" type="String" />
+
+    <div style="{! 'background-color:' + v.backgroundColor + ';'}">
+        <img src="{!v.imageUrl}" alt="Image" max-width="100%" />
+        <p style="{! 'font-size:' + v.fontSize + 'px; color:' + v.fontColor + ';'}">{! v.description }</p>
+    </div>
+</aura:component>

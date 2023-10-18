@@ -1,0 +1,84 @@
+<template>
+
+     <!-- <div class="search-bar">
+        <input
+            type="text"
+            placeholder="Search..."
+            value={filter}
+            oninput={handleFilterChange}
+        />
+    </div> -->
+
+     <div>
+         <legend class="slds-form-element__legend slds-form-element__label"> SEARCH </legend>
+        <lightning-input  type="search" class="slds-m-bottom_small" onchange={handlechange} value={searchKeyword}></lightning-input>
+    </div>
+    </br>
+ <div class="dropdown">
+        <button class="dropdown-button" onclick={toggleDropdown}>
+            Select Objects SHa
+        </button>
+        <div class={dropdownClass}>
+            <ul class="dropdown-list">
+                <template for:each={objectOptions} for:item="option">
+                    <li key={option.value}>
+                        <label>
+                            <input
+                                type="checkbox"
+                                value={option.value}
+                                checked={option.checked}
+                                onchange={handleOptionChange}
+                            />
+                            {option.label}
+                        </label>
+                    </li>
+                </template>
+            </ul>
+        </div>
+            <button class="search-button" onclick={handleSearchClick}>Search</button>
+    </div>
+    </br>
+    
+
+    <!-- Display related object records in a table -->
+<!-- <div>
+    <lightning-card>  
+
+    <div if:true={relatedRecords}>
+        <strong><h2>Related Records</h2></strong>
+        <table class="record-table">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={relatedRecords} for:item="record">
+                    <tr key={record.Id}>
+                        <td>{record.Name}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+     </lightning-card>
+</div> -->
+ <div if:true={searchResults}>
+        <h2>Search Results</h2>
+        <table class="record-table">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={searchResults} for:item="result">
+                    <tr key={result.Id}>
+                        <td>{result.Name}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+
+</template>

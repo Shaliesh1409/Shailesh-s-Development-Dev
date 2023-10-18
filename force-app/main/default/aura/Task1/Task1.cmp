@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="ContactAura" access="global" >
+    <div class="input-container">
+        <lightning:input  class="input-text" type="text" label="Enter name" aura:id="conName" />
+
+        <lightning:button class="submit-button" label="SUBMIT" onclick="{!c.handleSubmission}"/>
+        <!-- <lightning:notificationsLibrary aura:id="toastLib"/> -->
+
+    </div>
+</aura:component>

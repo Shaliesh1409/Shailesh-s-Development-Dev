@@ -1,0 +1,57 @@
+<!-- <template>
+    <lightning-dual-listbox name="languages"
+                            label="Select Languages"
+                            source-label="Available"
+                            selected-label="Selected"
+                            field-level-help="Select your object"
+                            options={objectOptions}
+                            value={selectedObject}
+                            onchange={handleObjectSelection}></lightning-dual-listbox>
+    <div class="slds-box" >
+        <p>Selected values are: {selected}</p>
+    </div>
+</template> -->
+<!-- <template>
+    <div>
+        <label for="languages">Select Languages</label>
+        <select multiple id="languages" name="languages" onchange={handleObjectSelection}>
+            <template for:each={objectOptions} for:item="option">
+                <option key={option.value} value={option.value}>{option.label}</option>
+            </template>
+        </select>
+    </div>
+    <div class="slds-box">
+        <p>Selected values are: {selectedObject}</p>
+    </div>
+</template> -->
+<template>
+
+    <div>
+          <p class="slds-p-horizontal_small">
+         <lightning-input  type="search" class="slds-m-bottom_small" label="Search" onchange={searchAccountAction} value={accountName}></lightning-input>
+         </p>
+    </div>
+    <div> <lightning-button variant="success" label="Success" title="Successful action" onclick={handleClick} class="slds-m-left_x-small"></lightning-button></div>
+    <div>
+        <label>Select Object</label>
+        <div class="slds-form-element__control">
+            <template for:each={objectOptions} for:item="option">
+                <div key={option.value}>
+                    <input type="checkbox" id={option.value} value={option.value} onchange={handleObjectSelection} />
+                    <label for={option.value}>{option.label}</label>
+                </div>
+            </template>
+        </div>
+    </div>
+    <div class="slds-box">
+        <p>Selected values are: {selectedObject}</p>
+    </div>
+       <div if:true={selectedObject}>
+        <lightning-datatable
+            key-field="Id"
+            data={objectRecords}
+            columns={columns}
+            hide-checkbox-column="true">
+        </lightning-datatable>
+    </div>
+</template>

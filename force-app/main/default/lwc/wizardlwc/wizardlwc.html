@@ -1,0 +1,89 @@
+<template>
+	<lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+		<lightning-progress-step label="Step 1" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+		<lightning-progress-step label="Step 2" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+		<lightning-progress-step label="Step 3" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+	</lightning-progress-indicator>
+
+	<template if:true={isStepOne}>
+		<div>
+			<lightning-card>
+				<div slot="title">
+					<h3>
+						<lightning-icon icon-name="standard:contact" size="small"></lightning-icon>OBJECTS
+					</h3>
+					<select class="slds-select" name="optionSelect" onchange={changeHandler}>
+                        <option value="OPTION A">Account</option>
+                        <option value="OPTION B">Contact</option>
+                        <option value="OPTION C">Lead</option>
+                    </select>
+				</div>
+				<template if:true={selectedObjectRecords}>
+					<lightning-datatable key-field="Id" data={selectedObjectRecords} columns={columns}>
+					</lightning-datatable>
+				</template>
+				<!-- <template if:true={selectedOption == "OPTION A"}>
+                    <div>
+                        <lightning-datatable key-field="id" data={acc} columns={columns}></lightning-datatable>
+                    </div>
+                </template>
+                <template if:true={selectedOption == "OPTION B"}>
+                    <div>
+                        <lightning-datatable key-field="id" data={con} columns2={columns2}></lightning-datatable>
+                    </div>
+                </template>
+                <template if:true={selectedOption == "OPTION C"}>
+                    <div>
+                        <lightning-datatable key-field="id" data={lead} columns3={columns3}></lightning-datatable>
+                    </div>
+                </template> -->
+			</lightning-card>
+		</div>
+	</template>
+	<template if:true={isStepTwo}>
+
+		<lightning-card title="Send Email">
+			<div class="slds-p-around_medium">
+				<!-- Input fields for email address, subject, and message -->
+				<lightning-input label="To" type="email" value={toEmail} onchange={handleToEmailChange}>
+				</lightning-input>
+				<lightning-input label="Subject" type="text" value={subject} onchange={handleSubjectChange}>
+				</lightning-input>
+				<lightning-textarea label="Message" value={message} onchange={handleMessageChange}></lightning-textarea>
+
+			</div>
+		</lightning-card>
+	</template>
+	<template if:true={isStepThree}>
+		<div>
+			<lightning-card>
+				<div slot="title">
+					<h3>
+						<lightning-icon icon-name="standard:email" size="small"></lightning-icon> E-MAIL PREVIEW
+					</h3>
+				</div>
+				<div class="slds-box slds-theme_default">
+					<h2>Email Preview</h2>
+					<p><strong>To:</strong> {toEmail}</p>
+					<p><strong>Subject:</strong> {subject}</p>
+					<p><strong>Message:</strong></p>
+					<div class="slds-p-around_medium slds-border">{message}</div>
+				</div>
+				<div class="slds-m-top_medium">
+					<!-- Button to send the email -->
+					<lightning-button label="✉️ Send" class="slds-align_absolute-center" variant="brand" onclick={sendEmail}></lightning-button>
+				</div>
+			</lightning-card>
+		</div>
+	</template>
+	<template if:true={isEnablePrev}>
+		<lightning-button variant="brand" label="Back" class="slds-align_absolute-center" onclick={handlePrev}></lightning-button>
+	</template>
+	</br>
+	<template if:true={isEnableNext}>
+		<lightning-button label="Next" variant="brand" class="slds-align_absolute-center" onclick={handleNext}></lightning-button>
+	</template>
+	<!-- <template if:true={isEnableFinish}>
+		<lightning-button label="Finish" variant="brand" onclick={handleFinish}></lightning-button>
+	</template> -->
+</template>
