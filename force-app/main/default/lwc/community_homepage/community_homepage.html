@@ -1,0 +1,46 @@
+<!-- communityHomePage.html -->
+<template>
+    <div class="community-navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item"><a href="javascript:void(0);" onclick={navigateToDashboard}>Dashboard</a></li>
+            <li class="navbar-item"><a href="javascript:void(0);" onclick={navigateToCourses}>Courses</a></li>
+            <li class="navbar-item"><a href="javascript:void(0);" onclick={navigateToAssignments}>Assignments</a></li>
+            <li class="navbar-item"><a href="javascript:void(0);" onclick={navigateToMessages}>Messages</a></li>
+            <li class="navbar-item"><a href="javascript:void(0);" onclick={navigateToProfile}>Profile</a></li>
+        </ul>
+    </div>
+
+    <div class="community-content">
+        <!-- Content for the selected menu item will be displayed here -->
+        <template if:true={isDashboard}>
+            <div class="content-box">
+                <h1>Dashboard</h1>
+                <!-- Add dashboard content here -->
+            </div>
+        </template>
+        <template if:true={isCourses}>
+            <div class="content-box">
+                <h1>Courses</h1>
+                <!-- Add courses content here -->
+            </div>
+        </template>
+        <template if:true={isAssignments}>
+            <div class="content-box">
+                <h1>Assignments</h1>
+                <!-- Add assignments content here -->
+            </div>
+        </template>
+        <template if:true={isMessages}>
+            <div class="content-box">
+                <h1>Messages</h1>
+                <!-- Add messages content here -->
+            </div>
+        </template>
+        <template if:true={isProfile}>
+            <div class="content-box">
+                <h1>Profile</h1>
+                <!-- Add profile content here -->
+            </div>
+        </template>
+    </div>
+</template>

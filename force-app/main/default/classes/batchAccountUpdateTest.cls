@@ -21,7 +21,7 @@ public class batchAccountUpdateTest{
         batchAccountUpdate batchJob = new batchAccountUpdate();
         Database.executeBatch(batchJob);
 
-        Test.stopTest();
+        Test.startTest();
 
         Opportunity updatedOpportunity = [SELECT Id, Name FROM Opportunity];
 

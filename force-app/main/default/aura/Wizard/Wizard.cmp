@@ -1,4 +1,4 @@
-<aura:component access="GLOBAL" controller="SalesforceLightningWizardController">
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="GLOBAL" controller="SalesforceLightningWizardController">
     <aura:attribute name="accountData" type="Account" default="{ 'sobjectType': 'Account','Name': ''}"/>
     <aura:attribute name="contactData" type="Contact" default="{ 'sobjectType': 'Contact','LastName': ''}"/>
     <aura:attribute name="showAccount" type="boolean" default="true"/> '

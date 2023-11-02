@@ -9,13 +9,10 @@ public class SalesforceLightningWizardController {
             System.debug('contactData::::' + contactData);
             System.debug('eventData::::' + eventData);
 
-            // Insert the Account record
             insert accountData;
 
-            // Set the AccountId on the Contact record
             contactData.AccountId = accountData.Id;
 
-            // Insert the Contact record
             insert contactData;
 
             // eventData.duration = 60;
@@ -28,17 +25,6 @@ public class SalesforceLightningWizardController {
             String subject = 'Wizard Task';
             eventData.Subject = subject ;
             insert eventData;
-
-
-
-        //     Event eventRecord = new Event(
-        //     Subject = eventSubject,
-        //     WhoId = contactData.Id,
-        //     StartDateTime = eventStartDateTime,
-        //     EndDateTime = eventendDateTime,
-        //     Location = eventlocation
-        //     );
-        // insert eventRecord;
 
         returnval = 'Record successfully inserted';
 

@@ -65,7 +65,7 @@
 
 public with sharing class EmailServiceController {
     @AuraEnabled
-    public static void sendEmail(String toEmail, String subject, String body, String attachmentData) {
+    public static String sendEmail(String toEmail, String subject, String body, String attachmentData) {
         String sendTo = toEmail;
         String subjectMail = subject;
         String bodyGmail = body;
@@ -108,5 +108,7 @@ public with sharing class EmailServiceController {
         httpResMail = httpMail.send(httpReqMail);
         System.debug(httpResMail);
         System.debug(httpResMail.getBody());
+
+        return 'email sent successfully';
     }
 }

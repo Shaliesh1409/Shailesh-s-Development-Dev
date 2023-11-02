@@ -1,0 +1,36 @@
+/* Add custom styles to make the "Page Not Found" page visually appealing */
+.custom-page-not-found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #888888;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff0000; /* Customize the color */
+    margin: 20px 0;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+a {
+    color: #0070d2; /* Customize the link color */
+    text-decoration: underline;
+}

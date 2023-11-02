@@ -1,4 +1,4 @@
-public class ContactAura {
+public inherited sharing class ContactAura {
     @AuraEnabled
     public static String CreateContact(String Name) {
         Contact con = new Contact();

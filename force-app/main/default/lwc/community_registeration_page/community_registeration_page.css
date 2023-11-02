@@ -1,0 +1,285 @@
+body {
+    background-size: cover;    
+    background-image: url("/resource/loginBackground"); /*choose image from static resource*/
+}
+
+.center {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-button {
+    
+    background-color: #6DE0F6;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 0.5rem;
+    font-size: 16px;
+    font-family: Arial;
+}
+
+.main-heading {
+
+    font-size: 20px;
+    color: purple;
+}
+
+.sub-heading {
+
+    font-size: 14px;
+    color: black;
+}
+
+.input-icon {
+
+    position: absolute;
+    margin: 0.9rem 0.7rem;
+}
+
+.input-element {
+
+    padding: 0.5rem 0rem 0.5rem 2rem;
+    font-size: 16px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.forgot-password-text {
+
+    color: black;
+    font-size: 14px;
+    text-align: left;
+}
+
+.register-text {
+
+    color: black;
+    font-size: 14px;
+    float: right;
+}
+
+.error {
+
+    text-align: center;
+    word-break: break-word;
+    max-width: 20rem;
+    color: #ff9e9e;
+}
+
+.register-heading {
+
+    max-width: 25rem;
+    font-weight: 700;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.slds-grid_vertical .slds-col {
+
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.terms-and-conditions-close {
+
+    float: right;
+    border: 2px solid  #170B45;     
+}
+
+.terms-and-conditions-header, .terms-and-conditions-body {
+   
+    background-color: #170B45;
+    color: burlywood;
+    border: 2px solid rgba(255,255,255,0.5);
+}
+
+.terms-and-conditions-header {
+
+    border-bottom: none;
+}
+
+.terms-and-conditions-body {
+
+    border-top: none;
+}
+
+.terms-and-conditions-heading {
+
+    color: black;
+    font-weight: 700;
+    pointer-events: none;
+}
+
+.terms-and-conditions-button:hover, .terms-and-conditions-button:focus {
+
+    background-color: burlywood;
+}
+
+.tooltip {
+    position: relative;   
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    max-width: 250px;
+    width: max-content;
+    background-color: #555;
+    color: gray;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 3px;
+    position: absolute;
+    z-index: 1;    
+    margin-left: 0.5rem;
+    bottom: 0;
+    left: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    margin-left: -6px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    transform: rotate(90deg);
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .tooltipEmail:hover ~ .usernameColumn .tooltip .tooltiptext {
+
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .tooltipError {
+
+    background-color: red !important;
+    border: 1px solid purple;
+  }
+
+  .tooltip .tooltipError::after {
+
+    border-color: gray transparent transparent transparent !important;
+  }
+
+  .tooltipShow {
+
+    display: block;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .tooltipHide {
+
+    display: none;
+  }
+
+
+.terms-and-conditions-link {
+
+    color: #170B45;;
+    text-decoration: underline;
+}
+
+
+
+
+/* Style for the container div */
+.roleDropdown {
+    margin-top: 16px;
+}
+
+/* Style for the label */
+.slds-form-element__label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* Style for the select element */
+.input-element select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+/* Style for the select element when focused */
+.input-element select:focus {
+    outline: none;
+    border-color: #0070d2;
+}
+
+/* Style for the option elements */
+.input-element option {
+    font-size: 16px;
+}
+
+/* Style for the placeholder option */
+.input-element option[disabled]:first-child {
+    color: #999;
+}
+
+/* Style for the selected option */
+.input-element option:checked {
+    background-color: #0070d2;
+    color: #fff;
+}
+
+
+
+/* .custom-title {
+    text-align: center; 
+    padding: 20px;
+    background-color:  lightskyblue; 
+    color: #333; 
+}
+
+.slds-m-around_medium{
+    background-color: paleturquoise; 
+
+}
+
+.radio{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.custom-button {
+    background-color: #4A90E2;
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    font-weight: bold; 
+    cursor: pointer; 
+}
+
+.button-container{
+    margin-top: 20px;
+    margin-bottom: 20px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
